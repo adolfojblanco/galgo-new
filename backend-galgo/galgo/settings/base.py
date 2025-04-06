@@ -1,5 +1,5 @@
 """
-Django settings for GalGo project.
+Django settings for galgo project.
 """
 
 from pathlib import Path
@@ -7,10 +7,13 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-7p(92kbdfl+zq6%s&2a(_jy*yl5v8)k=vyh8k0hxa5lf$s1%o5'
+
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -19,17 +22,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THREE_PARTY_APPS = [
+THIRD_PARTY_APPS = [
     'rest_framework',
 ]
 
 LOCAL_APPS = [
-    'applications.users',
-    'applications.restaurants',
-    'applications.base',
+    'apps.users'
 ]
 
-INSTALLED_APPS = INSTALLED_APPS + THREE_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -41,7 +42,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'core.urls'
+ROOT_URLCONF = 'galgo.urls'
 
 TEMPLATES = [
     {
@@ -59,17 +60,9 @@ TEMPLATES = [
     },
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
-}
-
-WSGI_APPLICATION = 'core.wsgi.application'
+WSGI_APPLICATION = 'galgo.wsgi.application'
 
 # Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -87,6 +80,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
+# https://docs.djangoproject.com/en/5.1/topics/i18n/
+
 LANGUAGE_CODE = 'es-ES'
 
 TIME_ZONE = 'Europe/Madrid'
@@ -95,7 +90,9 @@ USE_I18N = True
 
 USE_TZ = True
 
-AUTH_USER_MODEL = 'users.User'
 
-# Default primary key field type
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = 'static/'
+
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
