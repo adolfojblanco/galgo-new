@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
+  selector: 'app-auth',
   standalone: false,
+  templateUrl: './auth.component.html',
   styles: ``
 })
-export class AppComponent {
+export class AuthComponent {
 
 }

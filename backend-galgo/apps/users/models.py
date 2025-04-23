@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from .managers import UserManager
 
+
 # Create your models here.
 class User(AbstractBaseUser, PermissionsMixin):
     ROLE_CHOICES = (
@@ -23,6 +24,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['email',]
 
     objects = UserManager()
+
+    def has_role(self, role_name):
+        return self.role == role_name
 
     class Meta:
         verbose_name = 'Usuario'

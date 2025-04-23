@@ -1,4 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importing @ngxpert/hot-toast SCSS file. */
+@use '@ngxpert/hot-toast/styles';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mediun-width {
+  width: 40%;
+}
+
+.inline {
+  display: inline;
+}
+
+.color-white {
+  color: white !important;
+}
+
+.mat-mdc-unelevated-button, .mat-mdc-unelevated-button .mdc-button__ripple {
+  border-radius: 0 !important;
+}
+
+
+.mat-toolbar.mat-primary {
+  --mat-toolbar-container-background-color: #0e99cd;
+  --mat-toolbar-container-text-color: white;
+}
+
+.mat-mdc-raised-button.mat-primary {
+  --mdc-protected-button-container-color: #0e99cd;
+  --mdc-protected-button-label-text-color: white;
+  --mat-protected-button-state-layer-color: white;
+  --mat-protected-button-ripple-color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+
