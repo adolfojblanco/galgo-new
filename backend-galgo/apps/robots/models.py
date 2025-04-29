@@ -1,9 +1,11 @@
 from django.db import models
+from django.template.context_processors import request
+
 from apps.core.models import ClassModel
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 
-# Create your models here.
+# Robots apps
 class Robot(ClassModel):
     """Robot model """
     ROBOT_STATUS_CHOICES = [
@@ -21,6 +23,15 @@ class Robot(ClassModel):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        self.name = self.name.title()
+        self.model = self.model.upper()
+        super(Robot, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = 'Robot'
+        verbose_name_plural = 'Robots'
 
 
 class Location(models.Model):

@@ -6,19 +6,20 @@ from .managers import UserManager
 # Create your models here.
 class User(AbstractBaseUser, PermissionsMixin):
     ROLE_CHOICES = (
-        ('USER', 'Usuario'),
+        ('CUSTOMER', 'Comprador'),
+        ('SELLER', 'Vendedor'),
         ('ADMIN', 'Administrador'),
-        ('REST', 'Restaurante'),
         ('DRIVER', 'Conductor')
     )
 
     username = models.CharField(max_length=15, unique=True)
     email = models.EmailField(unique=True, blank=False)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    role = models.CharField(choices=ROLE_CHOICES, blank=False, default='USER', max_length=8)
+    first_name = models.CharField(max_length=100, blank=False)
+    last_name = models.CharField(max_length=100)
+    role = models.CharField(choices=ROLE_CHOICES, blank=False, default='CUSTOMER', max_length=15)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email',]
@@ -31,3 +32,5 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = 'Usuario'
         verbose_name_plural = 'Usuarios'
+
+

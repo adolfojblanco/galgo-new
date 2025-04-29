@@ -12,21 +12,27 @@ SECRET_KEY = 'django-insecure-7p(92kbdfl+zq6%s&2a(_jy*yl5v8)k=vyh8k0hxa5lf$s1%o5
 
 
 # Application definition
-
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Tree Party apps
+]
+
+THIRD_PARTY_APPS = [
     'rest_framework',
     "corsheaders",
     'drf_yasg',
-    'apps.users'
 ]
 
+APPS = [
+    'apps.users',
+    'apps.robots'
+]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

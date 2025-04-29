@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
+import { RestaurantsComponent } from './restaurants/restaurants.component';
 
 const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
+    children: [
+      {
+        path: 'restaurants',
+        component: RestaurantsComponent,
+      }
+    ]
   },
   {
     path: '**',
