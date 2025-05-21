@@ -3,8 +3,10 @@ from .models import Robot
 
 @admin.register(Robot)
 class RobotsAdmin(admin.ModelAdmin):
-    list_display  = ['id', 'name', 'model', 'status', 'is_active']
+    list_display  = ['name', 'model', 'status', 'is_active']
     readonly_fields = ['user_creator', 'user_editor']
+    ordering = ['name']
+    search_fields = ['name']
 
     def save_model(self, request, obj, form, change):
         user_creator = request.user

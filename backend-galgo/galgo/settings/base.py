@@ -29,7 +29,8 @@ THIRD_PARTY_APPS = [
 
 APPS = [
     'apps.users',
-    'apps.robots'
+    'apps.robots',
+    'apps.stores',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + APPS

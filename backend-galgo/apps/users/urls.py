@@ -8,10 +8,9 @@ from rest_framework_simplejwt.views import (
 
 from apps.users.views import UserApiviewSet
 
-
 router_user = DefaultRouter()
 router_user.register(
-    prefix='users', basename='users', viewset = UserApiviewSet
+    prefix='', basename='users', viewset = UserApiviewSet
 )
 
 urlpatterns = [
